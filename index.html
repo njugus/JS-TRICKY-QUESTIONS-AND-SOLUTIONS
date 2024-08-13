@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //a do while program to implement user validation input using do...while loop
+        const menu = {
+            1 : "say Hello",
+            2 : "Display Date",
+            3 : "Exit"
+        }
+        let option;
+        //dont forget to declare variables which are being in both local and global scope globally
+        let intOption;
+        
+        do{
+            option = prompt("Choose an option from 1 to 3: ");
+            intOption = Number(option);
+            switch(intOption){
+                case 1:
+                    alert(menu[intOption]);
+                    break
+                case 2 :
+                    alert(new Date.toLocaleString());
+                    break;
+                case 3 :
+                    alert("Goodbye");
+                    break
+                default:
+                    alert("Invalid Choice")
+            }
+        }while(intOption == 1 || intOption == 2)
+    </script>
+    
+</body>
+</html>

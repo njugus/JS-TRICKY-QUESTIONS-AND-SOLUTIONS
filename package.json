@@ -2,6 +2,7 @@
   "name": "javascritpt-tricky-questions-and-their-answers",
   "version": "1.0.0",
   "main": "findElementInArray.js",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },

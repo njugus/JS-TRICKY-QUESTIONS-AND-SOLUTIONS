@@ -4,6 +4,7 @@ const input = 245;
 // Function to convert any multi-digit number to a single-digit number
 const logicFunction = (z) => {
     let sum = 0;
+    let result;
 
     // Convert the number to a string and split it into individual digits
     const digits = z.toString().split("");
@@ -15,11 +16,18 @@ const logicFunction = (z) => {
 
     // If the sum is a single-digit, print it; otherwise, continue the process
     if (sum >= 1 && sum <= 9) {
-        console.log(sum);
+        result = sum
+        return result;
     } else {
-        logicFunction(sum);
+        return logicFunction(sum);
     }
+    
 };
 
 // Start the process with the input value
-logicFunction(input);
+//  logicFunction(input);
+const s = logicFunction(input);
+console.log(s);
+
+
+export default logicFunction

@@ -3,21 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DOM Manipulation</title>
 </head>
 <body>
-    <ul class="container">
-        <li class="item">Home</li>
-        <li class="item">About Us</li>
-        <li class="item">Blog</li>
-    </ul>
+    <header>
+        <h1 id="main-heading">Welcome to DOM Manipulation Practice</h1>
+        <p id="description">Play around with different DOM manipulation methods in JavaScript!</p>
+    </header>
+
+    <main>
+        <section id="content-section">
+            <h2 id="section-heading">Section Heading</h2>
+            <p class="paragraph">This is a paragraph inside the section.</p>
+            <p class="paragraph">Another paragraph in the section.</p>
+            <ul id="item-list">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p id="footer-text">This is the footer</p>
+    </footer>
+
     <script>
-        let div = document.querySelector(".container")
-        let firstElement = div.querySelector(".item")
-        let secondElement = firstElement.nextElementSibling
-        let thirdElement = firstElement
-        div.appendChild(thirdElement)
-        console.log(div.textContent)
+        //after()
+        //allows you to add multiple nodes
+        const header = document.querySelector("header")
+        const  firstPara = document.getElementById("description")
+        const newElement = document.createElement("p")
+        newElement.textContent = "This is a heading Paragraph"
+        newElement.id = "bottom-description"
+        firstPara.after(newElement)
+
+        //append()
+        //it allows you to add multiple nodes
+        let main = document.querySelector("main")
+        let para = document.createElement("p")
+        let newSection = document.createElement("section")
+        main.append(newSection)
+
+        //prepend()
+        //add nodes at the beggining of a nodelist
+        main.prepend(para)
+        
+        //insertAdjacentHTML - add nodes to the parent elment based on positionName
+        let footer = document.querySelector("footer")
+        footer.insertAdjacentHTML("afterend", "<strong> Made with Love By Kelvin<strong/>")
+
+        //replace child
+        //replace the old element child with a new element child
+        let section = document.getElementById("content-section")
+
+        let unorderedList = document.getElementById("item-list")
+        let newOrderedList = document.createElement("ol")
+
+        let newListOne = document.createElement("li")
+        let newListTwo = document.createElement("li")
+        section.replaceChild(newOrderedList, unorderedList)
+        newOrderedList.append(newListOne, newListTwo)
+
+        //cloneNode()
+        let node = document.querySelector("main")
+        let clonedNode = node.cloneNode(true)
+
+        //removeChild()
+        node.removeChild(node.firstElementChild)
+
+        //insertBefore()
+        let body = document.querySelector("body")
+        let div = document.createElement("div")
+        body.insertBefore(div, node)
+        console.log(body)
     </script>
 </body>
 </html>

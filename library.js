@@ -69,7 +69,6 @@ class LibrarySystem{
     }
 
     //search by Author
-
     searchBookByAuthor(author){
         const bookFound = this.#booksCollection.find(book => { return book.author == author})
         return bookFound
@@ -113,7 +112,6 @@ system.addBook(book3)
 
 system.borrowBook(user, "Classic Fiction")
 system.viewBorrowedBooksAndUserDetails()
-
 
 
 

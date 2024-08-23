@@ -12,11 +12,12 @@
         <li class="item">Blog</li>
     </ul>
     <script>
-        let list = document.querySelector(".container")
-        let newElement = document.createElement("li")
-        newElement.textContent = "Hello World"
-        list.appendChild(newElement)
-        console.log(list.innerHTML )
+        let div = document.querySelector(".container")
+        let firstElement = div.querySelector(".item")
+        let secondElement = firstElement.nextElementSibling
+        let thirdElement = firstElement
+        div.appendChild(thirdElement)
+        console.log(div.textContent)
     </script>
 </body>
 </html>

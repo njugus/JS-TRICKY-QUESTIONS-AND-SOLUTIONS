@@ -15,6 +15,7 @@ class User{
 }
 
 class Device{
+    //encapsulation
     #isTurnedOn
     constructor(){
         this.#isTurnedOn = false
@@ -29,8 +30,18 @@ class Device{
             this.status = "active"
             return this.#isTurnedOn = true
         }
-        else{
-            return this.#isTurnedOn
+        else if(this.checkDeviceStatus() === "active"){
+            return false
+        }
+    }
+
+    turnOffDevice(){
+        if(this.checkDeviceStatus() == "active"){
+            this.status = "inactive"
+            return this.#isTurnedOn = false
+        }
+        else if(this.checkDeviceStatus() === "inactive"){
+            return true
         }
     }
 }
@@ -123,7 +134,16 @@ class SmartHomeSytem{
             console.log("Device Turned On Successfully!!"); 
         }
         else{
-            console.log("Failed to turn on device"); 
+            console.log("Device arleady On"); 
+        }
+    }
+
+    turnOffDevice(device){
+        if(device.turnOffDevice()){
+            console.log("Device is arleady turned Off");
+        }
+        else{
+            console.log("Device turned Off successfully");   
         }
     }
     //toggle between nodes
@@ -163,10 +183,12 @@ const device1 = new Light("Living Room")
 const device2 = new Thermostat()
 const device3 = new Cameras("Backyard")
 const smartSystem = new SmartHomeSytem()
+
 smartSystem.turnOnDevice(device2)
-smartSystem.toggleBetweenModes(device2, "heating")
-smartSystem.updateTemparatures(device2, 10)
+smartSystem.turnOffDevice(device2)
+smartSystem.turnOffDevice(device2)
 console.log(device2);
+
 
 
 

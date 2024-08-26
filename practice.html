@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Propagation Example</title>
+</head>
+<body>
+    <div id="parent" style="background-color: lightblue; padding: 20px;">
+        Parent Div
+        <button id="child">Click Me</button>
+    </div>
+
+    <script>
+        const parentDiv = document.getElementById('parent');
+        const childBtn = document.getElementById('child');
+        const body = document.querySelector("body")
+
+        // Parent event listener
+        parentDiv.addEventListener('click', function() {
+            alert('Parent div clicked!');
+            event.stopPropagation()
+        });
+
+        // Child event listener
+        childBtn.addEventListener('click', function(event) {
+            alert('Child button clicked!');
+            event.stopPropagation()//prevent event bubbling to the parent element
+        });
+
+        childBtn.removeEventListener("click")
+
+        body.addEventListener("click", (event) => {
+            alert("Body Ckicked")
+        })
+    </script>
+
+</body>
+</html>
+
